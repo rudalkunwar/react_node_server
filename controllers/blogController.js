@@ -3,6 +3,7 @@ const update_blog = (req, res) => {};
 const delete_blog = (req, res) => {};
 const view_blogs = (req, res) => {
   console.log(req);
+  res.json({message:'Sucesss'});
 };
 const view_blog = (req, res) => {
 };

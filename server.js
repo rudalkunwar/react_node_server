@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const blogRoutes = require("./routes/blogRoutes");
+app.use(express.json());
 
 app.use(cors({ origin: "http://localhost:3000" }));
 const dbURI =
@@ -22,4 +23,7 @@ try {
 } catch (error) {
   console.log("Error connect to database");
 }
+app.get('/',(req,res)=>{
+    console.log(req);
+})
 app.use(blogRoutes);
