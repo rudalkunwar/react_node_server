@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const blogRoutes = require("./routes/blogRoutes");
 app.use(express.json());
-
 app.use(cors());
 const dbURI =
   "mongodb+srv://rudalkunwar:messi10@cluster0.frsepin.mongodb.net/react_blogs?retryWrites=true&w=majority";

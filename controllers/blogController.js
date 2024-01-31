@@ -1,10 +1,21 @@
 const Blog = require("../models/blog");
 
-const add_blog = (req, res) => {};
+const add_blog = (req, res) => {
+  const blog = new Blog(req.body);
+  blog.save(()=>{
+    
+  })
+};
 const update_blog = (req, res) => {};
 const delete_blog = (req, res) => {};
 const view_blogs = (req, res) => {
-  res.json({ message: "Sucesss" });
+  Blog.find()
+    .then((result) => {
+      res.status(200).json({ blogs: result });
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 };
 const view_blog = (req, res) => {};
 
