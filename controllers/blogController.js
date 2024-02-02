@@ -5,8 +5,8 @@ const add_blog = (req, res) => {
   try {
     blog
       .save()
-      .then((res) => {
-        res.status(200).json({ data: "Blog added Sucessfully" });
+      .then((result) => {
+        res.status(200).send("OK");
       })
       .catch((e) => {
         console.log(e);
@@ -20,9 +20,9 @@ const update_blog = (req, res) => {
   const id = req.params.id;
   const { title, snippet, body } = req.body;
   try {
-    Blog.findByIdAndUpdate(id)
+    Blog.findByIdAndUpdate(id, req.body)
       .then((result) => {
-        res.status(200).json({ data: "Blog updated Sucessfully" });
+        res.status(200).send("OK");
       })
       .catch((e) => {
         console.log(e);
@@ -36,8 +36,8 @@ const delete_blog = (req, res) => {
   const id = req.params.id;
   try {
     Blog.findByIdAndDelete(id)
-      .then(() => {
-        res.status(200).json({ data: "Blog deleted Sucessfully" });
+      .then((result) => {
+        res.status(200).send("OK");
       })
       .catch((e) => {
         res.status(400).json({ data: "Cannot delete blog" });
